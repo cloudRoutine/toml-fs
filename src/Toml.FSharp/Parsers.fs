@@ -308,8 +308,20 @@ module Parsers =
         ``[[+``.>>. (sepBy toml_key ``.``) .>>. ``]]+``
         |>> fun ((b,ls),e) -> String.concat "" [b; listToKey ls; e]
 
+    let ptkeyArr : _ Parser =  
+        ``[+``.>>. toml_key .>>. ``.`` .>>. (sepBy1 toml_key ``.``) .>>. ``]+``
+        |>> fun ((b,ls),e) -> 
+            let ((b,tKey),sep) = b
+            String.concat "" [ b; tKey; sep |> string; listToKey ls; e]
+
+    let paotKeyArr : _ Parser = 
+        ``[[+``.>>. toml_key .>>. ``.`` .>>. (sepBy1 toml_key ``.``) .>>. ``]]+``
+        |>> fun ((b,ls),e) -> 
+            let ((b,tKey),sep) = b
+            String.concat "" [ b; tKey; sep |> string; listToKey ls; e]
+
     let raw_content_block =
-        manyCharsTill anyChar (followedByL (paotKey<|>ptkey) "expected a table or array table key"<|>eof)
+        manyCharsTill anyChar (followedByL (paotKeyArr<|>ptkeyArr) "expected a table or array table key"<|>eof)
 
     let toml_item = (toml_key .>>. (skipEqs >>. toml_value)) .>> skip_tspcs
 
