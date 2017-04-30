@@ -113,6 +113,30 @@ let [<Test>] ``parses toml items (key value pairs)`` () =
     Check.QuickThrowOnFailure <| Prop.forAll toml_item_arb (valueParser toml_item)
 
 
+(*|-------------------------|*)
+(*| Array Size 0 or 1 Tests |*)
+(*|-------------------------|*)
+let runArray0Or1 test =
+    let reply = run section_splitter test
+    match reply with 
+    | Failure (str,_,_) -> failwith str
+    | Success (res,_,_) -> ()   
+ 
+
+let [<Test>] ``parses arrays of size 0`` () =
+    let test = """[package]
+
+    b = [ ]
+    """
+    runArray0Or1 test
+
+let [<Test>] ``parses arrays of size 1`` () =
+    let test = """[package]
+
+    b = [ 10 ]
+    """
+    runArray0Or1 test
+
 
 #if INTERACTIVE
 // Test Switches
