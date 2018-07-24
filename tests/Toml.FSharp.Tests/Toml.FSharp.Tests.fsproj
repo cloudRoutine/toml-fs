@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <DebugType>portable</DebugType>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
    <ItemGroup>
     <None Include="paket.references" />
     <Compile Include="Prelude.fs" />
     <Compile Include="Generators.fs" />
     <Compile Include="ParserTests.fs" />
-    <Compile Include="TableTests.fs" />
+    <Compile Include="Program.fs" />
     <None Include="TestExpr.fsx" />
-    <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Toml.FSharp\Toml.FSharp.fsproj"/>
