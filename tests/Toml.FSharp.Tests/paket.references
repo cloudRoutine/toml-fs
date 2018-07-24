@@ -2,3 +2,4 @@ FParsec
 FsCheck
 Nunit
 NUnit.ConsoleRunner
+Microsoft.NET.Test.Sdk
