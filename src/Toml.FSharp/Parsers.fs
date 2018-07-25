@@ -3,10 +3,12 @@ namespace TomlFSharp
 
 open System
 open System.Collections.Generic
+open System.Text
 open FParsec
 open FParsec.Primitives
 open TomlFSharp.AST
-open System.Text
+open TomlFSharp.Prelude
+
 
 module Parsers =
 
