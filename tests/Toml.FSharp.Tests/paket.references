@@ -1,4 +1,6 @@
+Microsoft.NET.Test.Sdk
+Nunit
+NUnit3TestAdapter
 FParsec
 FsCheck
-Nunit
-NUnit.ConsoleRunner
+

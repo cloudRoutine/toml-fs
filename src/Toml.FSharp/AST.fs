@@ -4,6 +4,7 @@
 open System
 open System.Text
 open System.Collections.Generic
+open TomlFSharp.Prelude
 
 type ('key,'value) Dictionary with
     member self.TryAdd (key,value) =

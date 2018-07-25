@@ -1,21 +1,20 @@
-source https://nuget.org/api/v2
 source https://api.nuget.org/v3/index.json
 
-redirects: on
+framework: >= netstandard2.0
 
-nuget FSharp.Core redirects :force, content:None
+nuget FSharp.Core
 nuget FParsec
-nuget FsCheck content:None
+nuget FsCheck
 
 nuget Nunit
 nuget NUnit.ConsoleRunner
+nuget NUnit3TestAdapter
 nuget SourceLink.Fake
+nuget Microsoft.NET.Test.Sdk
 
 group Build 
-    source https://nuget.org/api/v2
     source https://api.nuget.org/v3/index.json
 
-    
     nuget FSharp.Formatting
     nuget FAKE
 

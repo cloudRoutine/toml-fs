@@ -1,5 +1,4 @@
-﻿[<AutoOpen>]
-module TomlFSharp.Prelude
+﻿module TomlFSharp.Prelude
 open System
 (*| Helpers |*)
 
